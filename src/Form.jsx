@@ -22,7 +22,8 @@ function Form({ handleSetColors }) {
           type="text"
           value={color}
           onChange={(e) => setColor(e.target.value)}
-          placeholder={color || 'Please pick a color'}
+          placeholder={color || `← Pick a color!!`}
+          required
         />
         <button className="btn" type="submit" style={{ background: color }}>
           Submit

@@ -4,8 +4,6 @@ function SingleColor({ index, color }) {
   const { hex, weight } = color;
 
   const saveToClipBoard = async () => {
-    console.log(navigator.clipboard);
-
     if (navigator.clipboard) {
       try {
         await navigator.clipboard.writeText(`#${hex}`);
@@ -13,7 +11,7 @@ function SingleColor({ index, color }) {
       } catch (error) {
         toast.error("Couldn't copy color to clipboard!");
       }
-    } else toast.error("Apparently, clipboard isn't available at the moment!!");
+    } else toast.error("Apparently, clipboard isn't available!!");
   };
 
   return (
@@ -23,7 +21,7 @@ function SingleColor({ index, color }) {
       onClick={saveToClipBoard}
     >
       <p className="percent-value">{weight}%</p>
-      <p className="color-value">{hex}%</p>
+      <p className="color-value">#{hex}</p>
     </article>
   );
 }
