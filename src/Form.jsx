@@ -1,14 +1,14 @@
 import { useState } from 'react';
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-  //   console.log(color);
-
-  //   handleSetColrs(color);
-};
-
-function Form({ handleSetColrs }) {
+function Form({ handleSetColors }) {
   const [color, setColor] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleSetColors(color);
+    // setColor('');
+  };
+
   return (
     <section className="container">
       <h4>Color Generator</h4>
@@ -22,7 +22,7 @@ function Form({ handleSetColrs }) {
           type="text"
           value={color}
           onChange={(e) => setColor(e.target.value)}
-          placeholder="#a1b404"
+          placeholder={color || 'Please pick a color'}
         />
         <button className="btn" type="submit" style={{ background: color }}>
           Submit
